@@ -18,10 +18,11 @@ public class Main {
         }
         String cronExpression = args[0];
         String[] parts = cronExpression.split("\\s+");
-        if (parts.length < 6 ) {
+        if (parts.length < 6  ||  parts.length>6) {
             System.out.println("Invalid cron expression. Must contain 6 fields - min hour day_of_month month day_of_week cmd");
             return;
         }
+
         try{
 
             Map<CronFieldType, List<Integer>>  parsedFields=parseCronExpression(parts);
